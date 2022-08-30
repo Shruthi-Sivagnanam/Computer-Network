@@ -20,4 +20,4 @@ javac Client.java
 java Client
 ```
 
-Enter some random String in Client side and the string will be displayed in the server side. To complete the program enter "Completed" in the client side, both the server and client terminate their jobs.
+Enter some random String in Client side and the string will be displayed in the server side. To complete the program enter "Completed" in the client side, both the server and client terminate their job.
