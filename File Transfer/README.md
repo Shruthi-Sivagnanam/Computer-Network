@@ -1,6 +1,6 @@
 # File Transfer using TCP
 
-In this program the client should upload the any text file. The server would read and save it in the same directory.
+In this program the client should upload any text file [To upload other kind of files please change the extension accordingly in server program]. The server would read and save it in the same directory.
 
 ## How to run the programs
 
