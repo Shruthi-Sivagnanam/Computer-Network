@@ -1,6 +1,6 @@
 # Client - Server Communication
 
-In this program client sends the data [when the server is available]. The server reads the data and display the data untill the String "Completed" is given by the client.
+In this program client sends the data (when the server is available). The server reads the data and display the data untill the String "Completed" is given by the client.
 
 ## Steps to run the program
 
