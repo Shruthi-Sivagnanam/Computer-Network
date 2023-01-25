@@ -1,6 +1,6 @@
 global ns namFile
 
-set ns [new simulator]
+set ns [new Simulator]
 
 $ns set color 1 Blue
 $ns set color 2 Red
@@ -10,7 +10,7 @@ set namFile [open congestion.nam w]
 $ns namtrace-all $namFile
 
 #finish function
-proc finish{}{
+proc finish {} {
 	global ns namFile
 	$ns flush_trace
 	close $namFile
@@ -19,10 +19,10 @@ proc finish{}{
 }
 
 # Creation of node. This network contains four nodes.
-set $n0 [$ns node]
-set $n1 [$ns node]
-set $n2 [$ns node]
-set $n3 [$ns node]
+set n0 [$ns node]
+set n1 [$ns node]
+set n2 [$ns node]
+set n3 [$ns node]
 
 # Creating duplex link between the nodes.
 $ns duplex-link $n0 $n1 2mb 10ms DropTail
