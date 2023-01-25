@@ -12,7 +12,7 @@ $ns namtrace-all $namFile
 #finish function
 proc finish {} {
 	global ns namFile
-	$ns flush_trace
+	$ns flush-trace
 	close $namFile
 	exec nam congestion.nam
 	exit 0
@@ -30,43 +30,41 @@ $ns duplex-link $n1 $n2 2mb 10ms DropTail
 $ns duplex-link $n2 $n3 1.7mb 20ms DropTail
 
 # Setting the queue limit
-$ns set queue-limit $ns2 $ns3 10
+$ns set queue-limit $n2 $n3 10
 
 # Orientation of nodes in network animator
 $ns duplex-link-op $n0 $n1 orient right-down
 $ns duplex-link-op $n1 $n2 orient right-up
 $ns duplex-link-op $n2 $n3 orient right
-$ns duplex-link-op $n2 $n3 queue pos 0.5
 
 #TCP connection source and sink
 set tcp [new Agent/TCP]
-$tcp set class2
 $ns attach-agent $n0 $tcp
 set sink [new Agent/TCPSink]
 $ns attach-agent $n3 $sink
 $ns connect $tcp $sink
-$tcp set fid_1
+$tcp set fid_ 1
 
 #FTP over TCP
 set ftp [new Application/FTP]
 $ftp attach-agent $tcp
-$ftp set type_FTP
+$ftp set type_ FTP
 
 #UDP Connection
 set udp [new Agent/UDP]
 $ns attach-agent $n2 $udp
-set null [new Agnet/NULL]
+set null [new Agent/Null]
 $ns attach-agent $n3 $null
 $ns connect $udp $null
-$udp set fid_2
+$udp set fid_ 2
 
 #CBR connection
-set cbr [new Application/traffic/CBR]
+set cbr [new Application/Traffic/CBR]
 $cbr attach-agent $udp
-$cbr set type_CBR
-$cbr set packet_size_1000
-$cbr set rate_1mb
-$cbr set rabdom_false
+$cbr set type_ CBR
+$cbr set packet_size_ 1000
+$cbr set rate_ 1mb
+$cbr set random_ false
 
 #Events
 $ns at 0.1 "$cbr start"
